@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block titulo %} Mis publicaciones {% endblock %} 
+
+{% block contenido_principal %}
+<h2>Mis artículos</h2>
+
+<!-- Agregar Canción -->
+<div class="row text-right">
+	<a href="/articulos/agregar" class="btn btn-info" role="button">Agregar artículo</a>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Tipo</th>
+				<th class="col-md-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for articulo in articulos %}
+			<tr>
+				<td>{{ articulo.nombre }}</td>
+				<td>{{ articulo.tipo }}</td>
+				<td><a href="/articulo/modificar/{{ articulo._id.toString() }}">Modificar</a> <br>
+					<a href="/articulo/eliminar/{{ articulo._id.toString() }}">Eliminar</a> <br>
+			    </td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<!-- Agregar Canción -->
+<div class="row text-right">
+	<a href="/articulos/agregar" class="btn btn-info" role="button">Agregar artículo</a>
+</div>
+
+{% endblock %}
