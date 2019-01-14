@@ -18,6 +18,11 @@ module.exports = function(app, swig, mongo, gestorBD) {
 
     });
 
+    app.get('/blanco', function (req, res) {
+        var respuesta = swig.renderFile('views/bblanco.html', {});
+        res.send(respuesta);
+    });
+
     app.get('/articulos/agregar', function (req, res) {
         if (req.session.usuario == null) {
             res.redirect("/tienda");
