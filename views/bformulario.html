@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block titulo %} Mis publicaciones {% endblock %} 
+
+{% block contenido_principal %}
+<h2>Formulario</h2>
+
+<form action="/action_page.php">
+  Nombre:<br>
+  <input type="text" name="nombre" value="">
+  <br><br>
+  Apellidos:<br>
+  <input type="text" name="apellidos" value="">
+  <br><br>
+  Sexo:<br>
+  <input type="radio" name="sexo" value="hombre"> Hombre<br>
+  <input type="radio" name="sexo" value="mujer"> Mujer<br><br>
+  País:<br>
+  <input type="text" name="pais" value="">
+  <br><br>
+  Tipo:<br>
+  <input type="radio" name="tipo" value="empresa" id="emp"> Empresa<br>
+  <input type="radio" name="tipo" value="particular" id="part"> Particular<br><br>
+  <div id="empresa">
+      Nombre de la empresa:<br>
+      <input type="text" name="nombreEmpresa" value="">
+      <br><br>
+      Puesto:<br>
+      <input type="text" name="puesto" value="">
+      <br><br>
+      Pais:<br>
+      <input type="text" name="paisEmpresa" value="">
+      <br><br>
+      Diversificado:<br>
+      <input type="radio" name="diver" value="si"> Si<br>
+      <input type="radio" name="diver" value="no"> No<br><br>
+      Inversiones:<br>
+      <input type="radio" name="inversiones" value="si"> Si<br>
+      <input type="radio" name="inversiones" value="no"> No<br><br>
+      Sector:<br>
+      <input type="radio" name="sector" value="inversiones"> Inversiones<br>
+      <input type="radio" name="sector" value="privada"> Banca privada<br>
+      <input type="radio" name="sector" value="otros"> Otros<br><br>
+  </div>
+  Capital mínimo:<br>
+  <input type="text" name="minimo" value="">
+  <br><br>
+  Capital máximo:<br>
+  <input type="text" name="maximo" value="">
+  <br><br>
+  Disponibilidad:<br>
+  <input type="radio" name="disponibilidad" value="inmediato"> Inmediato<br>
+  <input type="radio" name="disponibilidad" value="unMes"> Más de un mes<br>
+  <input type="radio" name="disponibilidad" value="seisMeses"> Más de seis meses<br>
+  <input type="radio" name="disponibilidad" value="year"> Más de un año<br><br>
+  llamada:<br>
+  <input type="radio" name="llamada" value="si" id="si"> Si<br>
+  <input type="radio" name="llamada" value="no" id="no"> No
+  <div id="llamada">
+      <br>Teléfono:<br>
+      <input type="text" name="telefono" value="">
+      <br><br>
+      Día:<br>
+      <input type="text" name="dia" value="">
+      <br><br>
+      Hora:<br>
+      <input type="text" name="hora" value="">
+  </div>
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<script>
+  $("#empresa").hide();
+  $("#llamada").hide();
+  $("#emp").click(function () {
+      $("#empresa").show();
+  });
+
+  $("#part").click(function () {
+      $("#empresa").hide();
+  });
+
+  $("#si").click(function () {
+      $("#llamada").show();
+  });
+
+  $("#no").click(function () {
+      $("#llamada").hide();
+  });
+</script>
+
+{% endblock %}

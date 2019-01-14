@@ -23,6 +23,11 @@ module.exports = function(app, swig, mongo, gestorBD) {
         res.send(respuesta);
     });
 
+    app.get('/inversores', function (req, res) {
+        var respuesta = swig.renderFile('views/bformulario.html', {});
+        res.send(respuesta);
+    });
+
     app.get('/articulos/agregar', function (req, res) {
         if (req.session.usuario == null) {
             res.redirect("/tienda");
