@@ -19,7 +19,7 @@
 		</thead>
 		<tbody>
 		{% for articulo in articulos %}
-			<tr>
+			<tr class="numero">
 				<td>{{ articulo.nombre }}</td>
 				<td>{{ articulo.tipo }}</td>
 				<td><a href="/articulo/modificar/{{ articulo._id.toString() }}">Modificar</a> <br>
@@ -35,5 +35,13 @@
 <div class="row text-right">
 	<a href="/articulos/agregar" class="btn btn-info" role="button">Agregar artículo</a>
 </div>
+
+<div class="text-left">
+	<h4 id="contador"></h4>
+</div>
+<script>
+	let cont = document.getElementsByClassName("numero").length;
+	$('#contador').text(`Número de artículos: ${cont}`);
+</script>
 
 {% endblock %}
