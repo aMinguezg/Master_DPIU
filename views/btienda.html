@@ -29,17 +29,39 @@
     <!-- http://librosweb.es/libro/bootstrap_3/capitulo_2/tipos_de_rejillas.html -->
     <!-- Inicio del Bloque articulo  -->
     {% for articulo in articulos %}
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-        <div style="width: 200px">
+    {% if articulo.nombre == 'Patinete' %}
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" id="destacado">
+        <div style="width: 50px">
+                <table>
+                    <tr>
+                    <td><img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png"/></td>
+                    <td><img src="/fotos/oferta.png" alt="/img/articulo1.png"/></td>
+                    </tr>
+                </table>
             <a href="/articulo/{{ articulo._id.toString() }}">
-                <img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png" />
+                
                 <!-- http://www.socicon.com/generator.php  -->
+                
                 <div class="wrap">{{ articulo.nombre }}</div>
                 <div class="small">{{ articulo.vendedor }}</div>
                 <div class="text-right">{{ articulo.precio }} €</div>
             </a>
         </div>
     </div>
+    
+    {%else%}
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+            <div style="width: 200px">
+                <a href="/articulo/{{ articulo._id.toString() }}">
+                    <img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png" />
+                    <!-- http://www.socicon.com/generator.php  -->
+                    <div class="wrap">{{ articulo.nombre }}</div>
+                    <div class="small">{{ articulo.vendedor }}</div>
+                    <div class="text-right">{{ articulo.precio }} €</div>
+                </a>
+            </div>
+        </div>
+    {%endif%}
     {% endfor %}
     <!-- Fin del Bloque articulo  -->
 </div>
@@ -78,4 +100,11 @@
         
     </ul>
 </div>
+
+<script>
+        $('#destacado').css("border", "5px solid red");
+        $('#destacado').css("border-style", "outset");
+</script>
+
 {% endblock %}
+
