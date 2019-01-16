@@ -7,7 +7,7 @@
 <div class="table-responsive">
 	<table class="table table-hover">
 		<thead>
-			<tr>
+			<tr >
 				<th>Nombre</th>
 				<th>Genero</th>
 				<th class="col-md-1"></th>
@@ -15,7 +15,7 @@
 		</thead>
 		<tbody>
 		{% for articulo in articulos %}
-			<tr>
+			<tr class="numero">
 				<td>{{ articulo.nombre }}</td>
 				<td>{{ articulo.tipo }}</td>
 				<td>
@@ -27,5 +27,21 @@
 	</table>
 </div>
 
+<div id="vacio">
+		<img src="/img/vacio.png" alt="Haz algo">
+		<p>Aún no has comprado nada... ves a la tienda y compra algún producto</p>
+</div>
 
+<div class="text-left">
+		<h4 id="contador"></h4>
+</div>
+<script>
+		$('#vacio').hide();
+		let cont = document.getElementsByClassName("numero").length;
+		$('#contador').text(`Número de compras: ${cont}`);
+		if(cont==0){
+			$('#contador').hide();
+			$('#vacio').show();
+		}
+</script>
 {% endblock %}
