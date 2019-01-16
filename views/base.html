@@ -1,101 +1,104 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>{% block titulo %} segundaMano {% endblock %}</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </style>
 
-  {% block scripts %}  {% endblock %}
+  {% block scripts %} {% endblock %}
 </head>
+
 <body>
 
 
-<!-- Barra de Navegación superior -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <img src="/img/logo.png" alt="logo"/> 
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li id="mTienda" class="active"><a href="/tienda">Tienda</a></li>
-		    <li id="mPublicaciones"><a href="/articulos">Artículos</a></li>
-        <li id="mCompras"><a href="/compras">Compras</a></li>
-        <li id="mMenu"><a href="#">Menú</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-	    <li><a href="/registrarse"><span class="glyphicon glyphicon-user"></span> Regístrate</a></li>
-      <li><a href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a></li>
-      <li><a href="/inversores"><span class="glyphicon glyphicon-pencil"></span> Nuevos inversores</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<nav class="navbar navbar-inverse" id="menu">
+  <!-- Barra de Navegación superior -->
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <div class="navbar-header">
-          <ul class="nav navbar-nav">
-            <li><a href="/informacion">Acerca de la empresa</a></li>
-            <li><a href="/blanco">Condiciones</a></li>
-            <li><a href="/blanco">Empleo</a></li>
-            <li><a href="/blanco">Equipo</a></li>
-            <li><a href="/blanco">Servicios de pago</a></li>
-            <li><a href="/blanco">Sistema de garantías</a></li>
-            <li><a href="/blanco">Soporte</a></li>
-            <li><a href="/blanco">Tarifas de publicación</a></li>
-            
-          </ul>
-        </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img src="/img/logo.png" alt="logo" />
       </div>
-</nav>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li id="mTienda" class="active"><a href="/tienda">Tienda</a></li>
+          <li id="mPublicaciones"><a href="/articulos">Artículos</a></li>
+          <li id="mCompras"><a href="/compras">Compras</a></li>
+          <li id="mMenu"><a href="#">Menú</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/registrarse"><span class="glyphicon glyphicon-user"></span> Regístrate</a></li>
+          <li><a href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a></li>
+          <li><a href="/inversores"><span class="glyphicon glyphicon-pencil"></span> Nuevos inversores</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
+  <nav class="navbar navbar-inverse" id="menu">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="/informacion">Acerca de la empresa</a></li>
+          <li><a href="/blanco">Condiciones</a></li>
+          <li><a href="/blanco">Empleo</a></li>
+          <li><a href="/blanco">Equipo</a></li>
+          <li><a href="/blanco">Servicios de pago</a></li>
+          <li><a href="/blanco">Sistema de garantías</a></li>
+          <li><a href="/blanco">Soporte</a></li>
+          <li><a href="/blanco">Tarifas de publicación</a></li>
 
-  <script>
-		var mensaje = getUrlParameter('mensaje');
-		var tipoMensaje = getUrlParameter('tipoMensaje');
-		
-		if ( mensaje != ""){
-			if (tipoMensaje == "" ){
-				tipoMensaje = 'alert-info';
-			}
-			$( ".container" )
-				.append("<div class='alert "+tipoMensaje+"'>"+mensaje+" </div>");
-		}
-		
-		function getUrlParameter(name) {
-		    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-		    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-		    var results = regex.exec(location.search);
-		    return results === null ? '' : 
-		    	decodeURIComponent(results[1].replace(/\+/g, ' '));
-		};
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    $("#menu").hide();
+  <div class="container">
 
-    $("#mMenu").click(function () {
-      $("#menu").show();
-    });
+    <script>
+      var mensaje = getUrlParameter('mensaje');
+      var tipoMensaje = getUrlParameter('tipoMensaje');
 
-	</script>
+      if (mensaje != "") {
+        if (tipoMensaje == "") {
+          tipoMensaje = 'alert-info';
+        }
+        $(".container")
+          .append("<div class='alert " + tipoMensaje + "'>" + mensaje + " </div>");
+      }
 
-  <!-- Contenido -->
-  {% block contenido_principal %}
-  <!-- Posible contenido por defecto -->
-  {% endblock %}
-	
-</div>
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' :
+          decodeURIComponent(results[1].replace(/\+/g, ' '));
+      };
+
+      $("#menu").hide();
+
+      $("#mMenu").click(function () {
+        $("#menu").show();
+      });
+
+    </script>
+
+    <!-- Contenido -->
+    {% block contenido_principal %}
+    <!-- Posible contenido por defecto -->
+    {% endblock %}
+
+  </div>
 
 
 </body>
+
 </html>

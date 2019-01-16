@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block titulo %} Mis publicaciones {% endblock %} 
+{% extends "base.html" %} {% block titulo %} Mis publicaciones {% endblock %}
 
 {% block contenido_principal %}
 <h2>Mis artículos</h2>
@@ -18,15 +18,16 @@
 			</tr>
 		</thead>
 		<tbody>
-		{% for articulo in articulos %}
+			{% for articulo in articulos %}
 			<tr class="numero">
 				<td>{{ articulo.nombre }}</td>
 				<td>{{ articulo.tipo }}</td>
 				<td><a href="/articulo/modificar/{{ articulo._id.toString() }}">Modificar</a> <br>
-					<a href="/articulo/eliminar/{{ articulo._id.toString() }}">Eliminar</a> <br>
-			    </td>
+					<a id="eliminar" href="/articulo/eliminar/{{ articulo._id.toString() }}" onclick="return confirm('¿Estas seguro de eliminar este artículo?');">Eliminar</a>
+					<br>
+				</td>
 			</tr>
-		{% endfor %}
+			{% endfor %}
 		</tbody>
 	</table>
 </div>
