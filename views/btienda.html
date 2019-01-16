@@ -7,16 +7,16 @@
 <!-- Búsqueda -->
 <div class="row">
     <div id="custom-search-input ">
-        <form method="get" action="/tienda" >
-            <div
-                    class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-5 pull-right">
-                <input type="text" class="search-query form-control"
-                       placeholder="Nombre del artículo" name="busqueda"/>
+        <form method="get" action="/tienda">
+            <div class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-5 pull-right">
+                <input type="text" class="search-query form-control" placeholder="Nombre del artículo" name="busqueda" />
+                <small id="ayudaBuscador" class="form-text text-muted">Ej: Peonza, Patinete (no olvides las
+                    mayusculas).</small>
                 <span class="input-group-btn">
-					<button class="btn" type="submit">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</span>
+                    <button class="btn" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
             </div>
         </form>
     </div>
@@ -32,35 +32,35 @@
     {% if articulo.nombre == 'Patinete' %}
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" id="destacado">
         <div style="width: 50px">
-                <table>
-                    <tr>
-                    <td><img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png"/></td>
-                    <td><img src="/fotos/oferta.png" alt="/img/articulo1.png"/></td>
-                    </tr>
-                </table>
+            <table>
+                <tr>
+                    <td><img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png" /></td>
+                    <td><img src="/fotos/oferta.png" alt="/img/articulo1.png" /></td>
+                </tr>
+            </table>
             <a href="/articulo/{{ articulo._id.toString() }}">
-                
+
                 <!-- http://www.socicon.com/generator.php  -->
-                
+
                 <div class="wrap">{{ articulo.nombre }}</div>
                 <div class="small">{{ articulo.vendedor }}</div>
                 <div class="text-right">{{ articulo.precio }} €</div>
             </a>
         </div>
     </div>
-    
+
     {%else%}
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-            <div style="width: 200px">
-                <a href="/articulo/{{ articulo._id.toString() }}">
-                    <img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png" />
-                    <!-- http://www.socicon.com/generator.php  -->
-                    <div class="wrap">{{ articulo.nombre }}</div>
-                    <div class="small">{{ articulo.vendedor }}</div>
-                    <div class="text-right">{{ articulo.precio }} €</div>
-                </a>
-            </div>
+        <div style="width: 200px">
+            <a href="/articulo/{{ articulo._id.toString() }}">
+                <img src="/fotos/{{ articulo._id.toString() }}.png" alt="/img/articulo1.png" />
+                <!-- http://www.socicon.com/generator.php  -->
+                <div class="wrap">{{ articulo.nombre }}</div>
+                <div class="small">{{ articulo.vendedor }}</div>
+                <div class="text-right">{{ articulo.precio }} €</div>
+            </a>
         </div>
+    </div>
     {%endif%}
     {% endfor %}
     <!-- Fin del Bloque articulo  -->
@@ -69,42 +69,40 @@
 <!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
 <div class="row text-center">
     <ul class="pagination">
-                <!-- Primera -->
-                <li class="page-item" >
-                    <a class="page-link" href="/tienda?pg=1" >Primera</a>
-                </li>
-                
-                <!-- Anterior (si la hay ) -->
-                {% if pgActual-1 >= 1 %}
-                <li class="page-item">
-                    <a class="page-link" href="/tienda?pg={{ pgActual -1 }}" >{{ pgActual -1 }}</a>
-                </li>
-                {% endif %}
-                
-                <!-- Actual  -->
-                <li class="page-item active" >
-                    <a class="page-link" href="/tienda?pg={{ pgActual }}">{{ pgActual }}</a>
-                </li>
-                
-                <!-- Siguiente (si la hay)  -->
-                {% if pgActual+1 <= pgUltima %}
-                <li class="page-item">
-                    <a class="page-link" href="/tienda?pg={{ pgActual+1 }}" >{{ pgActual+1 }}</a>
-                </li>
-                {% endif %}
-                
-                <!-- Última -->
-                <li class="page-item" >
-                    <a class="page-link" href="/tienda?pg={{ pgUltima }}" >Última</a>
-                </li>
-        
+        <!-- Primera -->
+        <li class="page-item">
+            <a class="page-link" href="/tienda?pg=1">Primera</a>
+        </li>
+
+        <!-- Anterior (si la hay ) -->
+        {% if pgActual-1 >= 1 %}
+        <li class="page-item">
+            <a class="page-link" href="/tienda?pg={{ pgActual -1 }}">{{ pgActual -1 }}</a>
+        </li>
+        {% endif %}
+
+        <!-- Actual  -->
+        <li class="page-item active">
+            <a class="page-link" href="/tienda?pg={{ pgActual }}">{{ pgActual }}</a>
+        </li>
+
+        <!-- Siguiente (si la hay)  -->
+        {% if pgActual+1 <= pgUltima %} <li class="page-item">
+            <a class="page-link" href="/tienda?pg={{ pgActual+1 }}">{{ pgActual+1 }}</a>
+            </li>
+            {% endif %}
+
+            <!-- Última -->
+            <li class="page-item">
+                <a class="page-link" href="/tienda?pg={{ pgUltima }}">Última</a>
+            </li>
+
     </ul>
 </div>
 
 <script>
-        $('#destacado').css("border", "5px solid red");
-        $('#destacado').css("border-style", "outset");
+    $('#destacado').css("border", "5px solid red");
+    $('#destacado').css("border-style", "outset");
 </script>
 
 {% endblock %}
-

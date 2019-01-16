@@ -5,34 +5,34 @@
 
 <form class="credit-card-div">
   Nombre:<br>
-  <input class="form-check-input" type="text" name="nombre" value="">
+  <input class="form-check-input" type="text" name="nombre" placeholder="Juan" required>
   <br><br>
   Apellidos:<br>
-  <input class="form-check-input" type="text" name="apellidos" value="">
+  <input class="form-check-input" type="text" name="apellidos" placeholder="García">
   <br><br>
   Sexo:<br>
   <input class="form-check-input" type="radio" name="sexo" value="hombre"> Hombre<br>
   <input class="form-check-input" type="radio" name="sexo" value="mujer"> Mujer<br><br>
   País:<br>
-  <input class="form-check-input" type="text" name="pais" value="">
+  <input class="form-check-input" type="text" name="pais" placeholder="España">
   <br><br>
   Tipo:<br>
-  <input class="form-check-input" type="radio" name="tipo" value="empresa" id="emp"> Empresa<br>
+  <input class="form-check-input" type="radio" name="tipo" value="empresa" id="emp" required> Empresa<br>
   <input class="form-check-input" type="radio" name="tipo" value="particular" id="part"> Particular<br>
   <small id="ayudaInversiones" class="form-text text-muted">¿Vienes cómo empresa o cómo particular?</small><br><br>
   <div id="empresa">
       Nombre de la empresa:<br>
-      <input class="form-check-input" type="text" name="nombreEmpresa" value="">
+      <input class="form-check-input" type="text" name="nombreEmpresa" placeholder="Axactor" required>
       <br><br>
       Puesto:<br>
-      <input class="form-check-input" type="text" name="puesto" value="">
+      <input class="form-check-input" type="text" name="puesto" placeholder="Director">
       <small id="ayudaTrabajo" class="form-text text-muted">Puesto de trabajo en la empresa.</small>
       <br><br>
       País de la empresa:<br>
-      <input class="form-check-input" type="text" name="paisEmpresa" value="">
+      <input class="form-check-input" type="text" name="paisEmpresa" placeholder="España" required>
       <br><br>
       Diversificado:<br>
-      <input class="form-check-input" type="radio" name="diver" value="si"> Si<br>
+      <input class="form-check-input" type="radio" name="diver" value="si" required> Si<br>
       <input class="form-check-input" type="radio" name="diver" value="no"> No<br>
       <small id="ayudaDiver" class="form-text text-muted">¿Está el negocio de la empresa diversificado en más de un país?.</small><br><br>
       Inversiones:<br>
@@ -45,31 +45,31 @@
       <input class="form-check-input" type="radio" name="sector" value="otros"> Otros<br><br>
   </div>
   Capital mínimo:<br>
-  <input class="form-check-input" type="text" name="minimo" value="">
+  <input class="form-check-input" type="text" name="minimo" placeholder="5000 euros" required>
   <small id="ayudaMinimo" class="form-text text-muted">Capital mínimo disponible para invertir.</small>
   <br><br>
   Capital máximo:<br>
-  <input class="form-check-input" type="text" name="maximo" value="">
+  <input class="form-check-input" type="text" name="maximo" placeholder="150000 euros" required>
   <small id="ayudaMaximo" class="form-text text-muted">Capital máximo disponible para invertir.</small>
   <br><br>
   Disponibilidad:<br>
-  <input class="form-check-input" type="radio" name="disponibilidad" value="inmediato"> Inmediato<br>
+  <input class="form-check-input" type="radio" name="disponibilidad" value="inmediato" required> Inmediato<br>
   <input class="form-check-input" type="radio" name="disponibilidad" value="unMes"> Más de un mes<br>
   <input class="form-check-input" type="radio" name="disponibilidad" value="seisMeses"> Más de seis meses<br>
   <input class="form-check-input" type="radio" name="disponibilidad" value="year"> Más de un año<br>
   <small id="ayudaDispo" class="form-text text-muted">Disponibilidad para realizar la inversión.</small><br><br>
   Concertar llamada:<br>
-  <input class="form-check-input" type="radio" name="llamada" value="si" id="si"> Si<br>
+  <input class="form-check-input" type="radio" name="llamada" value="si" id="si" required> Si<br>
   <input class="form-check-input" type="radio" name="llamada" value="no" id="no"> No
   <div id="llamada">
       <br>Teléfono:<br>
-      <input class="form-check-input" type="text" name="telefono" value="">
+      <input class="form-check-input" type="tel" name="telefono" placeholder="666666666" required>
       <br><br>
       Día:<br>
-      <input class="form-check-input" type="text" name="dia" value="">
+      <input class="form-check-input" type="text" name="dia" placeholder="Martes y jueves" required>
       <br><br>
       Hora:<br>
-      <input class="form-check-input" type="text" name="hora" value="">
+      <input class="form-check-input" type="text" name="hora" placeholder="17:00 a 19:00" required>
   </div>
   <br><br>
   <input type="submit" value="Submit" class="btn btn-primary">
